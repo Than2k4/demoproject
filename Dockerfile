@@ -4,11 +4,6 @@ FROM tomcat:9.0.96
 # Xóa các ứng dụng mặc định của Tomcat
 RUN rm -rf /usr/local/tomcat/webapps/*
 
-# Cài đặt thêm công cụ và thư viện cần thiết
-RUN apt-get update && apt-get install -y \
-    curl \
-    libmysql-java 
-    # Nếu cần kết nối MySQL, bạn có thể bỏ qua nếu không cần
 
 # Copy file WAR của ứng dụng vào thư mục webapps của Tomcat
 COPY target/*.war /usr/local/tomcat/webapps/ROOT.war
